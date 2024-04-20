@@ -1,0 +1,105 @@
+<!-- **SQL (Structured Query Language):**
+
+SQL, or Structured Query Language, is a language used to communicate with and manipulate relational databases. It is a standard language for database management systems, allowing users to perform tasks such as querying data, updating data, and defining and modifying the structure of databases and tables.
+
+Key features of SQL include:
+
+1. **Data Querying:** SQL allows users to retrieve data from databases using queries. Queries can specify conditions for filtering data, sorting results, and grouping data.
+
+2. **Data Manipulation:** SQL provides commands for inserting, updating, and deleting data in databases. These commands enable users to modify the content of databases.
+
+3. **Schema Definition:** SQL includes commands for defining the structure of databases, such as creating tables, specifying data types, and setting constraints (e.g., primary keys, foreign keys).
+
+4. **Transaction Control:** SQL supports transactions, which allow users to group multiple database operations into a single unit of work. Transactions ensure that either all operations in the group are completed successfully or none of them are.
+
+5. **Access Control:** SQL provides mechanisms for controlling access to databases and tables, including user authentication and authorization.
+
+
+**NoSQL (Not Only SQL):**
+
+NoSQL is a term used to describe databases that use non-relational data models. Unlike traditional SQL databases, which use a tabular structure with rows and columns, NoSQL databases use various data models, such as document-oriented, key-value, columnar, and graph databases.
+
+Key features of NoSQL databases include:
+
+1. **Schema Flexibility:** NoSQL databases often have flexible schemas, allowing developers to store data without a predefined structure. This flexibility can be beneficial for handling unstructured or semi-structured data.
+
+2. **Scalability:** NoSQL databases are designed to scale horizontally, meaning they can handle large amounts of data by adding more servers to a distributed system. This scalability is useful for applications with high volumes of data or traffic.
+
+3. **High Performance:** NoSQL databases are optimized for specific use cases, such as high-speed data retrieval or real-time analytics, which can result in faster performance compared to traditional SQL databases for those use cases.
+
+4. **Ease of Development:** NoSQL databases often provide simpler APIs and data models compared to SQL databases, which can make development and maintenance easier for certain applications.
+
+5. **Different Data Models:** NoSQL databases support various data models, including document, key-value, column-family, and graph models, allowing developers to choose the most suitable model for their application's needs.
+
+    ----------------------------------------------------------------------------------------------------------------------------
+
+<!- Entity–relationship model Checkpoint -->
+
+<!-- Gymnasuis (ID, Name, Adress, Telephone, Number)n
+    Members   (Gymnasuis_id [foreing key], lastname, firstname, adress, date of birth, gender)1
+    Session   (ID, type of sport, shedule, members(int<20,) coach_id1 [foreing key], coachi_id2 [froeing key])
+    coaches   (ID, first name, last name, age, speciality) -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+
+<!-- Relational model Checkpoint
+Hotel    (Hotel_id, Hotel_name, Hotel_type[forein key])
+Type     (Type_id, Type_Name)
+Employee (EMployee_id, Employee_name,Employee_Speciality, Hotel_working_id[foreing key])
+Room     (Room_id, Floor, Category_room_id[forein key ]) -->
+
+<!-- ------------------------------------------------------------------ -->
+<!-- Costumer (customer_id, customer_name, costumer_Tel)
+Product  (product_id, Product_name, Price)
+Orders   (Customer_id [forein key], Product_id[forein key], Quantity, Total_amount)
+
+-- Customer table
+CREATE TABLE Customer (
+    customer_id INT PRIMARY KEY,
+    customer_name VARCHAR(255),
+    customer_tel VARCHAR(20)
+);
+
+-- Product table
+CREATE TABLE Product (
+    product_id INT PRIMARY KEY,
+    product_name VARCHAR(255),
+    price NUMBER
+);
+
+-- Orders table
+CREATE TABLE Orders (
+    order_id INT PRIMARY KEY,
+    customer_id INT,
+    product_id INT,
+    quantity INT,
+    total_amount NUMBER
+    CONSTRAINT fk_customer_id FOREIGN KEY (customer_id) REFERENCES Customer(customer_id),
+    CONSTRAINT fk_product_id FOREIGN KEY (product_id) REFERENCES Product(product_id)
+); -->
+
+<!-- -------------------------------------------------------- -->
+<!-- -- Inserting values into Produc table
+INSERT INTO Product (Product_id, Product_Name, Category, Price)
+VALUES (P01, 'Samsung Galaxy S20', 'Smartphone', '3299'),
+       (P02, 'ASUS Notebook', 'PC', '4599'),
+       
+
+-- Inserting values into Customer table
+INSERT INTO Customer (Customer_id, Customer_Name, Customer_Tel)
+VALUES (C01, 'ALI-04-26', 71321069),
+       (C02, 'ASMA', 77345823),
+
+-- Inserting values into Orders table
+INSERT INTO Orders (Customer_id, Product_id, OrderDate, Quantity, Total_amount)
+VALUES (C01, 'P02', '', '2', 9198),
+       (C02, 'P01', '28/05/2020', '1', 3299),
+       
+ -->
+
+<!-- ------------------------------------------------------------ -->
+
+
+
+
+
+
