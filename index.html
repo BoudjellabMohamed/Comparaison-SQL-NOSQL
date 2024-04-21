@@ -97,6 +97,40 @@ VALUES (C01, 'P02', '', '2', 9198),
  -->
 
 <!-- ------------------------------------------------------------ -->
+<!-- Data query language (DQL) Checkpoint
+SELECT * FROM Customers;
+SELECT product_name, category
+FROM Products
+WHERE price BETWEEN 5000 AND 10000;
+SELECT * FROM Products
+ORDER BY price DESC;
+SELECT COUNT(*) AS total_orders,
+       AVG(total_amount) AS avg_amount,
+       MAX(total_amount) AS highest_amount,
+       MIN(total_amount) AS lowest_amount
+FROM Orders;
+SELECT customer_id
+FROM Orders
+GROUP BY customer_id
+HAVING COUNT(*) > 2;
+SELECT EXTRACT(MONTH FROM order_date) AS month,
+       COUNT(*) AS order_count
+FROM Orders
+WHERE EXTRACT(YEAR FROM order_date) = 2020
+GROUP BY EXTRACT(MONTH FROM order_date);
+SELECT p.product_name, c.customer_name, o.order_date
+FROM Orders o
+JOIN Products p ON o.product_id = p.product_id
+JOIN Customers c ON o.customer_id = c.customer_id;
+SELECT *
+FROM Orders
+WHERE order_date >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH)
+AND order_date < CURDATE();
+SELECT c.customer_id
+FROM Customers c
+LEFT JOIN Orders o ON c.customer_id = o.customer_id
+WHERE o.customer_id IS NULL; -->
+
 
 
 
